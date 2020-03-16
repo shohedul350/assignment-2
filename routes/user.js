@@ -5,14 +5,18 @@ const router = express.Router();
 
 // Post
 //  api/user/post
-router.post('/post', (req, res) => {
-  res.status(200).json({ message: 'Post Successfully', post: req.body });
+router.get('/get', (req, res, next) => {
+  try {
+    user.find();
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Get single post
 //  api/user/Get
 router.get('/get/:id', (req, res) => {
-  console.log(req.params);
+
   res.status(200).json({ message: 'Get User Data' });
 });
 
